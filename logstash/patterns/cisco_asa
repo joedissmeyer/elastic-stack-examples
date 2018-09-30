@@ -1,0 +1,44 @@
+#== These are additional Cisco ASA patterns that are not included in the Logstash core plugins ==#
+#
+# For an example of how to use this in your own Logstash pipeline, reference cisco_asa_example.conf.
+
+# ASA-5-713050
+CISCOFW713050 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage}  Reason: %{GREEDYDATA:vpnreason}  Remote Proxy %{GREEDYDATA:vpnremoteprox}, Local Proxy %{GREEDYDATA:vpnlocalprox}
+# ASA-5-713259
+CISCOFW713259 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage} Reason: %{GREEDYDATA:vpnreason}
+# ASA-4-113019
+CISCOFW113019 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage} Session Type: %{GREEDYDATA:vpnsessiontype}, Duration: %{HOUR:vpndurationhour}h:%{MINUTE:vpndurationmin}m:%{SECOND:vpndurationsec}s, Bytes xmt: %{GREEDYDATA:vpnxmtbytes:int}, Bytes rcv: %{GREEDYDATA:vpnrcvbytes:int}, Reason: %{GREEDYDATA:vpnreason}
+# ASA-5-713119
+CISCOFW713119 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage}
+# ASA-5-713120
+CISCOFW713120 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage}
+# ASA-5-713049
+CISCOFW713049 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage}  Responder, Inbound SPI = 0x7df633f6, Outbound SPI = 0x085c6667
+# ASA-5-713076
+CISCOFW713076 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip}, %{GREEDYDATA:vpnmessage}
+# ASA-5-713130
+CISCOFW713130 Group = %{GREEDYDATA:vpngroup}, Username = %{GREEDYDATA:vpnuser}, IP = %{IP:src_ip},
+# ASA-4-722012
+CISCOFW722012 Group <%{NOTSPACE:vpngroup} User <%{USER:vpnuser}> IP <%{IP:src_ip}> SVC Message: %{GREEDYDATA:vpnsvccode}/%{GREEDYDATA:vpnmessage}
+# ASA-4-722037
+CISCOFW722037 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> SVC closing connection: %{GREEDYDATA:vpnmessage}
+# ASA-4-722041
+CISCOFW722041 TunnelGroup <%{GREEDYDATA:vpn_tunnel_group}> GroupPolicy <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> %{GREEDYDATA:vpnmessage}
+# ASA-4-722051
+CISCOFW722051 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> IPv4 Address <%{IP:dst_ip}> IPv6 address <%{IP:src_ipv6}> %{GREEDYDATA:vpnmessage}
+# ASA-5-722010
+CISCOFW722010 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> SVC Message: %{GREEDYDATA:vpnsvccode}/%{GREEDYDATA:vpnmessage}
+# ASA-5-722028
+CISCOFW722028 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> %{GREEDYDATA:vpnmessage}
+# ASA-5-722032
+CISCOFW722032 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> %{GREEDYDATA:vpnmessage}
+# ASA-5-722033
+CISCOFW722033 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> %{GREEDYDATA:vpnmessage}
+# ASA-5-722034
+CISCOFW722034 Group <%{GREEDYDATA:vpngroup}> User <%{GREEDYDATA:vpnuser}> IP <%{IP:src_ip}> %{GREEDYDATA:vpnmessage}
+# ASA-5-737003
+CISCOFW737003 IPAA: Session=%{GREEDYDATA:vpnsessionid}, %{GREEDYDATA:vpnmessage} '%{GREEDYDATA:vpngroup}'$
+# ASA-5-737034
+CISCOFW737034 IPAA: Session=%{GREEDYDATA:vpnsession}, %{GREEDYDATA:vpnmessage}
+
+#== End Cisco ASA filters ==#

@@ -1,0 +1,26 @@
+# Example Logstash instance configuration file. 
+#
+# Configurations in this file is what controls the actual configuration of the Logstash instance itself, NOT the data/filter pipelines themselves.
+# Pipeline configurations are different.
+#
+# Default location of this file (when installing Logstash from RPM), /etc/logstash/logstash.yml
+
+
+# path.config defines a single configuration path for your pipelines. This is the OLD way of doing things. Recommend to leave this commented out for the long term.
+# If path.config is defined then you cannot use the pipelines feature which was introduced in Logstash v6.x.
+# Do yourself a favor - use pipelines. If you can't, uncomment this.
+#path.config: /etc/logstash/conf.d
+
+# Define the IP of where Logstash monitoring metrics can be gathered from. Default is '0.0.0.0'. Leave this alone if you don't know what this means.
+http.host: "0.0.0.0"
+
+# Define the port range for where Logstash monitoring metrics can be gathered. Default is 9600 but if that is in use it will chose another availalbe port from the range provided.
+http.port: 9600-9610
+
+# Define the path of the logstash instance logs. This is the default.
+path.logs: /var/log/logstash
+
+# Define the xpack monitoring cluster to ship metrics to. Comment this out if you don't use xpack.
+xpack.monitoring.elasticsearch.url: "http://my-elasticsearch-monitoring-cluster:9200"
+xpack.monitoring.elasticsearch.username: "my-logstash-user"
+xpack.monitoring.elasticsearch.password: "my-logstash-user-password"

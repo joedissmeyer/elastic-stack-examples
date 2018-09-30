@@ -1,0 +1,15 @@
+# Pipelines definition file for Logstash.
+# Official reference: https://www.elastic.co/guide/en/logstash/current/multiple-pipelines.html
+#
+# The default location of this file (when installing Logstash from RPM), /etc/logstash/pipelines.yml
+#
+# Every time you add in a new pipeline you need to remember to add it to the pipelines.yml file.
+
+- pipeline.id: my-pipeline-id-1
+  path.config: "/etc/logstash/pipelines/cisco_asa_example.conf"
+
+- pipeline.id: my-pipeline-id-2
+  path.config: "/etc/logstash/pipelines/pipeline-2.conf"
+
+- pipeline.id: my-pipeline-id-3
+  path.config: "/etc/logstash/pipelines/pipeline-3.conf"
